@@ -16,7 +16,6 @@ experimentation, and research exploration.
 - Image Agent: processes visual inputs (future extension)
 - Retriever Agent: retrieves relevant documents from vector databases
 - LLM: generates final responses using retrieved context
-
 ---
 
 ## 🔧 Technologies Used
