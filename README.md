@@ -24,8 +24,9 @@ Le workflow se compose de plusieurs étapes :
 ---
 
 ## 📂 Structure du projet
-""" rag-multimodal-multi-agent/
+```markdown
+ rag-multimodal-multi-agent/
 ├── sma.ipynb # Notebook principal
 ├── documents/ # Dossier contenant les documents à analyser
 ├── .env # Variables d'environnement (API keys)
-├── README.md # Ce fichier """
+├── README.md # Ce fichier ```
