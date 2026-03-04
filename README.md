@@ -22,19 +22,22 @@ Le workflow se compose de plusieurs étapes :
 - **Python 3.12+**
 
 ---
+
 # 🚀 Système Multi-Modal Intelligent  
 ### Analyse Automatisée de Documents, Images et Graphiques avec Agents IA
 
 ---
+
 ## 📂 Structure du projet
 ```markdown
  rag-multimodal-multi-agent/
 ├── sma.ipynb # Notebook principal
 ├── documents/ # Dossier contenant les documents à analyser
 ├── .env # Variables d'environnement (API keys)
-├── README.md # Ce fichier ```
+├── README.md # Ce fichier```
 
 ---
+
 ## 🏗 Architecture du Système
 
 ```markdown
@@ -50,6 +53,6 @@ Image Analyzer (Vision LLM)
      ↓
 Multi-Agent Synthesis (CrewAI)
      ↓
-Final Multimodal Report ```
+Final Multimodal Report```
 
 
