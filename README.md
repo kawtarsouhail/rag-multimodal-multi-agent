@@ -34,6 +34,7 @@ Le workflow se compose de plusieurs étapes :
 ├── .env # Variables d'environnement (API keys)
 ├── README.md # Ce fichier ```
 
+---
 ## 🏗 Architecture du Système
 
 ```markdown
