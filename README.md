@@ -22,6 +22,28 @@ Le workflow se compose de plusieurs étapes :
 - **Python 3.12+**
 
 ---
+# 🚀 Système Multi-Modal Intelligent  
+### Analyse Automatisée de Documents, Images et Graphiques avec Agents IA
+
+---
+
+
+## 🏗 Architecture du Système
+
+```text
+User Input
+     ↓
+Router (LLM-based decision)
+     ↓
+Retriever (RAG - FAISS)
+     ↓
+Graph Analyzer (Vision LLM)
+     ↓
+Image Analyzer (Vision LLM)
+     ↓
+Multi-Agent Synthesis (CrewAI)
+     ↓
+Final Multimodal Report ```
 
 ## 📂 Structure du projet
 ```markdown
