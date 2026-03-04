@@ -26,11 +26,17 @@ Le workflow se compose de plusieurs étapes :
 ### Analyse Automatisée de Documents, Images et Graphiques avec Agents IA
 
 ---
-
+## 📂 Structure du projet
+```markdown
+ rag-multimodal-multi-agent/
+├── sma.ipynb # Notebook principal
+├── documents/ # Dossier contenant les documents à analyser
+├── .env # Variables d'environnement (API keys)
+├── README.md # Ce fichier ```
 
 ## 🏗 Architecture du Système
 
-```text
+```markdown
 User Input
      ↓
 Router (LLM-based decision)
@@ -45,10 +51,4 @@ Multi-Agent Synthesis (CrewAI)
      ↓
 Final Multimodal Report ```
 
-## 📂 Structure du projet
-```markdown
- rag-multimodal-multi-agent/
-├── sma.ipynb # Notebook principal
-├── documents/ # Dossier contenant les documents à analyser
-├── .env # Variables d'environnement (API keys)
-├── README.md # Ce fichier ```
+
