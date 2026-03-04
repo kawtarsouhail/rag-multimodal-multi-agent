@@ -34,10 +34,10 @@ Le workflow se compose de plusieurs étapes :
 ├── sma.ipynb # Notebook principal
 ├── documents/ # Dossier contenant les documents à analyser
 ├── .env # Variables d'environnement (API keys)
-├── README.md # Ce fichier```
+├── README.md # Ce fichier
+```
 
 ---
-
 ## 🏗 Architecture du Système
 
 ```markdown
@@ -53,6 +53,7 @@ Image Analyzer (Vision LLM)
      ↓
 Multi-Agent Synthesis (CrewAI)
      ↓
-Final Multimodal Report```
+Final Multimodal Report
+```
 
 
