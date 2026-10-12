@@ -101,8 +101,8 @@ def get_image_base64(path):
     return None
 
 with st.sidebar:
-    if os.path.exists("Projet.jpeg"):
-        st.image("Projet.jpeg")
+    if os.path.exists("docs/Projet.jpeg"):
+        st.image("docs/Projet.jpeg")
     else:
         st.markdown("<h2 style='text-align:center; color:white;'>🚀 PROJET SMA</h2>", unsafe_allow_html=True)
     
@@ -110,7 +110,7 @@ with st.sidebar:
     st.markdown("<h3 style='color:white; text-align:center;'>👥 Équipe Projet</h3>", unsafe_allow_html=True)
 
     students = [
-        {"name": "Kawtar Souhail", "role": "Responsable RAG & Texte", "img": "Kawtar.jpeg"},
+        {"name": "Kawtar Souhail", "role": "Responsable RAG & Texte", "img": "docs/Kawtar.jpeg"},
     ]
 
     for s in students:
