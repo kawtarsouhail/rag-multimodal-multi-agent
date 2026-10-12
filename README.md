@@ -18,7 +18,7 @@ Construit avec **LangGraph** (orchestration), **CrewAI** (synthèse multi-agents
 
 | 3. Routage et analyse | 4. Rapport final |
 |:---:|:---:|
-| ![Routage et analyse](docs/rag3.png) | ![Rapport final](docs/rag4.png) |
+| ![Routage et analyse](docs/rag3.png) | ![Rapport final](docs/rag5.png) |
 | Le routeur choisit les agents ; le RAG et les modèles de vision analysent chaque source. | Synthèse multimodale produite par les agents CrewAI. |
 
 ---
