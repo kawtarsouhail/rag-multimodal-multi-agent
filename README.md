@@ -1,59 +1,105 @@
 # RAG Multimodal Multi-Agent
 
-## 📝 Description
+Système multi-agents qui analyse des **documents (PDF/TXT)**, des **images** et des **graphiques** pour répondre à une question, puis produit une **synthèse structurée en Markdown**.
 
-Ce projet met en place un **système multi-agents avancé** basé sur le framework **LangGraph** et **CrewAI**, combiné à un moteur de **Récupération Augmentée par Génération (RAG)**.  
-Le système permet de répondre à des requêtes utilisateur en analysant des **documents textuels**, **images**, et **graphes**, puis de générer une synthèse structurée.
-
-Le workflow se compose de plusieurs étapes :  
-1. **Router Node** : Détermine quels agents et outils sont nécessaires selon la requête de l’utilisateur (texte, graphique, image).  
-2. **Retriever Node** : Recherche et récupère les documents pertinents dans le vector store.  
-3. **CrewAI Node** : Plusieurs agents collaborent pour analyser les données et produire une réponse finale.
+Construit avec **LangGraph** (orchestration), **CrewAI** (synthèse multi-agents), **FAISS** (RAG) et **Groq** (LLM et vision), avec une interface **Streamlit**.
 
 ---
 
-## ⚙️ Technologies utilisées
+## 🖼 Exemple d'utilisation
 
-- **LangChain / LangGraph** : pour la construction et l'orchestration du workflow.  
-- **CrewAI** : pour la synthèse multi-agent et l’analyse avancée des données.  
-- **FAISS** : pour l’indexation vectorielle des documents.  
-- **HuggingFace Embeddings** : pour encoder les documents textuels.  
-- **Groq API** : pour l’exécution des LLM (modèles `llama3` et `mixtral`).  
-- **Python 3.12+**
+**Scénario :** on charge un PDF, une image et un graphique, puis on pose la question
+*« Analyse la corrélation entre les graphiques et le texte du PDF »*.
+
+| 1. Chargement des fichiers | 2. Question de l'utilisateur |
+|:---:|:---:|
+| ![Chargement des fichiers](docs/rag1.png) | ![Question](docs/rag2.png) |
+| Documents, images et graphiques déposés dans l'interface. | Question en langage naturel, ou analyse complète par défaut. |
+
+| 3. Routage et analyse | 4. Rapport final |
+|:---:|:---:|
+| ![Routage et analyse](docs/rag3.png) | ![Rapport final](docs/rag4.png) |
+| Le routeur choisit les agents ; le RAG et les modèles de vision analysent chaque source. | Synthèse multimodale produite par les agents CrewAI. |
 
 ---
 
-# 🚀 Système Multi-Modal Intelligent  
-### Analyse Automatisée de Documents, Images et Graphiques avec Agents IA
+## 🏗 Architecture
+
+```
+User Input
+     ↓
+Router (LLM)             → décide quels agents activer
+     ↓
+Retriever (RAG, FAISS)   → passages pertinents des documents
+     ↓
+Graph Analyzer (Vision)  → type, axes, valeurs et tendances
+     ↓
+Image Analyzer (Vision)  → objets, texte visible, contexte
+     ↓
+Synthèse multi-agents (CrewAI)
+     ↓
+Rapport multimodal final (Markdown)
+```
+
+1. **Router** : choisit `retriever`, `graph` et/ou `image` selon la question et les fichiers fournis.
+2. **Retriever** : découpe les documents en passages, les indexe dans FAISS et récupère les plus proches de la question.
+3. **Graph / Image Analyzer** : un modèle de vision analyse chaque fichier de façon indépendante.
+4. **Synthèse CrewAI** : un analyste extrait les informations clés, puis un synthétiseur rédige le rapport final.
+
+---
+
+## ⚙️ Technologies
+
+| Rôle | Outil |
+|---|---|
+| Orchestration | LangGraph |
+| Agents de synthèse | CrewAI |
+| Indexation vectorielle | FAISS |
+| Embeddings | HuggingFace `all-MiniLM-L6-v2` |
+| Routeur | Groq `llama-3.1-8b-instant` |
+| Vision | Groq `llama-4-scout-17b-16e-instruct` |
+| Synthèse | Groq `gpt-oss-120b` |
+| Interface | Streamlit |
+| Langage | Python 3.12 |
 
 ---
 
 ## 📂 Structure du projet
-```markdown
- rag-multimodal-multi-agent/
-├── sma.ipynb # Notebook principal
-├── documents/ # Dossier contenant les documents à analyser
-├── .env # Variables d'environnement (API keys)
-├── README.md # Ce fichier
+
+```
+rag-multimodal-multi-agent/
+├── app.py              # Interface Streamlit
+├── ragproject.py       # Pipeline LangGraph + CrewAI + RAG
+├── docs/               # Captures d'écran (rag1.png ... rag4.png)
+├── requirements.txt
+├── .env.example        # Modèle de variables d'environnement
+└── README.md
 ```
 
 ---
-## 🏗 Architecture du Système
 
-```markdown
-User Input
-     ↓
-Router (LLM-based decision)
-     ↓
-Retriever (RAG - FAISS)
-     ↓
-Graph Analyzer (Vision LLM)
-     ↓
-Image Analyzer (Vision LLM)
-     ↓
-Multi-Agent Synthesis (CrewAI)
-     ↓
-Final Multimodal Report
+## 🚀 Installation et lancement
+
+```bash
+git clone https://github.com/kawtarsouhail/rag-multimodal-multi-agent.git
+cd rag-multimodal-multi-agent
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env      # puis renseigne ta clé
+streamlit run app.py
 ```
 
+Variable d'environnement requise dans `.env` :
 
+```
+GROQ_API_KEY=ta_cle_groq
+```
+
+Une clé gratuite est disponible sur [console.groq.com](https://console.groq.com/). Ne commite jamais ton fichier `.env`.
+
+---
+
+## 👩‍💻 Auteure
+
+**Kawtar Souhail** · [Portfolio](https://kawtar-portfolio-ten.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/kawtar-souhail-44a969250) · [GitHub](https://github.com/kawtarsouhail)
